@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generated Result | AI Internship Email Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="page-bg"></div>
+  <main class="container">
+    <section class="card">
+      <div class="badge">Step 3 of 3</div>
+      <h1>Your Internship Email is Ready</h1>
+      <p class="subtitle">Generation mode: <strong>{{ generation_mode|upper }}</strong></p>
+
+      <div class="progress-wrap">
+        <div class="progress-step done">University</div>
+        <div class="progress-line active"></div>
+        <div class="progress-step done">Profile</div>
+        <div class="progress-line active"></div>
+        <div class="progress-step active">Result</div>
+      </div>
+
+      <div class="result-grid">
+        <article class="info-card">
+          <h2>Matched Professor</h2>
+          <p><strong>Name:</strong> {{ professor.name }}</p>
+          <p><strong>Department:</strong> {{ professor.department }}</p>
+          <p><strong>Research Areas:</strong> {{ professor.research_areas | join(', ') }}</p>
+          <p><strong>Email:</strong> <a href="mailto:{{ professor.email }}">{{ professor.email }}</a></p>
+          <p><strong>Relevance Score:</strong> {{ score }}</p>
+          {% if resume_filename %}
+            <p><strong>Resume Uploaded:</strong> {{ resume_filename }}</p>
+          {% endif %}
+        </article>
+
+        <article class="info-card">
+          <h2>Generated Email</h2>
+          <pre id="email-content">{{ generated_email }}</pre>
+
+          <div class="button-row">
+            <button type="button" class="btn secondary" id="copy-btn">Copy Email</button>
+            <button type="button" class="btn secondary" id="download-btn">Download .txt</button>
+            <form action="{{ url_for('regenerate') }}" method="post">
+              <button type="submit" class="btn primary">Regenerate Email</button>
+            </form>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

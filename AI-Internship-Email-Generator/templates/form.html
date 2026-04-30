@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Profile | AI Internship Email Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="page-bg"></div>
+  <main class="container">
+    <section class="card">
+      <div class="badge">Step 2 of 3</div>
+      <h1>Student Profile Input</h1>
+      <p class="subtitle">University selected: <strong>{{ university }}</strong></p>
+      <p class="hint">Add detailed information for better matching and stronger email quality.</p>
+
+      <div class="progress-wrap">
+        <div class="progress-step done">University</div>
+        <div class="progress-line active"></div>
+        <div class="progress-step active">Profile</div>
+        <div class="progress-line"></div>
+        <div class="progress-step">Result</div>
+      </div>
+
+      <form method="post" action="{{ url_for('generate') }}" enctype="multipart/form-data" class="form-grid">
+        <label for="student_name">Student Name (optional)</label>
+        <input type="text" id="student_name" name="student_name" placeholder="e.g., Alex Johnson" />
+
+        <label for="course">Current Course or Major</label>
+        <textarea id="course" name="course" required placeholder="e.g., B.Tech in Computer Science"></textarea>
+
+        <label for="skills">Technical Skills</label>
+        <textarea id="skills" name="skills" required placeholder="e.g., Deep learning, data preprocessing, backend development"></textarea>
+
+        <label for="languages">Programming Languages Known</label>
+        <textarea id="languages" name="languages" required placeholder="e.g., Python, C++, JavaScript"></textarea>
+
+        <label for="projects">Projects Completed</label>
+        <textarea id="projects" name="projects" required placeholder="Describe major projects and outcomes"></textarea>
+
+        <label for="certifications">Certifications</label>
+        <textarea id="certifications" name="certifications" required placeholder="List relevant certifications"></textarea>
+
+        <label for="research_interests">Research Interests</label>
+        <textarea id="research_interests" name="research_interests" required placeholder="e.g., Computer vision for healthcare, AI in robotics"></textarea>
+
+        <label for="career_goals">Career Goals</label>
+        <textarea id="career_goals" name="career_goals" required placeholder="Describe your long-term goals"></textarea>
+
+        <label for="internship_reason">Why You Want an Internship</label>
+        <textarea id="internship_reason" name="internship_reason" required placeholder="Explain why this internship matters to you"></textarea>
+
+        <label for="linkedin">LinkedIn (optional)</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/your-profile" />
+
+        <label for="github">GitHub (optional)</label>
+        <input type="url" id="github" name="github" placeholder="https://github.com/your-username" />
+
+        <label for="resume">Resume Upload (optional)</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx,.txt" />
+
+        <button type="submit" class="btn primary" id="generate-btn">Generate Email</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="loader-overlay" id="loader">
+    <div class="spinner"></div>
+    <p>Generating your internship email...</p>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

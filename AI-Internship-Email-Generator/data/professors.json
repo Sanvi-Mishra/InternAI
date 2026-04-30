@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Dr. Emily Carter",
+    "department": "Computer Science",
+    "research_areas": ["Artificial Intelligence", "Machine Learning", "Computer Vision"],
+    "email": "ecarter@harvard.edu",
+    "university": "Harvard University"
+  },
+  {
+    "name": "Dr. Jason Lee",
+    "department": "Electrical Engineering",
+    "research_areas": ["Embedded Systems", "VLSI", "Electronics"],
+    "email": "jlee@harvard.edu",
+    "university": "Harvard University"
+  },
+  {
+    "name": "Dr. Sophia Nguyen",
+    "department": "Data Science",
+    "research_areas": ["Data Science", "Machine Learning", "Robotics"],
+    "email": "snguyen@harvard.edu",
+    "university": "Harvard University"
+  },
+  {
+    "name": "Dr. Raghav Sharma",
+    "department": "Computer Science and Engineering",
+    "research_areas": ["Artificial Intelligence", "Data Science", "Robotics"],
+    "email": "raghav.sharma@cmrit.ac.in",
+    "university": "CMR Institute of Technology (CMRIT)"
+  },
+  {
+    "name": "Dr. Priya Nair",
+    "department": "Electronics and Communication",
+    "research_areas": ["Embedded Systems", "VLSI", "Electronics"],
+    "email": "priya.nair@cmrit.ac.in",
+    "university": "CMR Institute of Technology (CMRIT)"
+  },
+  {
+    "name": "Dr. Ankit Verma",
+    "department": "Computer Science and Engineering",
+    "research_areas": ["Computer Vision", "Machine Learning", "Artificial Intelligence"],
+    "email": "ankit.verma@cmrit.ac.in",
+    "university": "CMR Institute of Technology (CMRIT)"
+  }
+]

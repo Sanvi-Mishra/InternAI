@@ -1,0 +1,282 @@
+:root {
+  --bg-start: #f7fafc;
+  --bg-end: #e8f1ff;
+  --text: #1f2937;
+  --muted: #4b5563;
+  --primary: #0f766e;
+  --primary-dark: #0b5f59;
+  --secondary: #dbeafe;
+  --card: #ffffff;
+  --border: #dbe3ef;
+  --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+}
+
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 15% 20%, #d4f9f1 0%, transparent 42%),
+    radial-gradient(circle at 85% 10%, #dbeafe 0%, transparent 48%),
+    linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  z-index: -1;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 28px;
+  animation: rise 0.45s ease;
+}
+
+.card-center {
+  max-width: 700px;
+  margin: 48px auto;
+}
+
+@keyframes rise {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.hint {
+  margin-top: 0;
+  color: #0b7285;
+  font-weight: 600;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.progress-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 26px;
+}
+
+.progress-step {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.progress-step.active {
+  background: #ccfbf1;
+  color: #115e59;
+}
+
+.progress-step.done {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.progress-line {
+  height: 3px;
+  flex: 1;
+  background: #e5e7eb;
+  border-radius: 999px;
+}
+
+.progress-line.active {
+  background: #6ee7b7;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+label {
+  margin-top: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font: inherit;
+  background: #fdfefe;
+}
+
+textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid rgba(15, 118, 110, 0.25);
+  border-color: #2dd4bf;
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), #0d9488);
+  box-shadow: 0 8px 18px rgba(15, 118, 110, 0.25);
+}
+
+.btn.primary:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #0f766e);
+}
+
+.btn.secondary {
+  color: #1e3a8a;
+  background: var(--secondary);
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 16px;
+}
+
+.info-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  background: #fcfdff;
+}
+
+.info-card p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+pre {
+  white-space: pre-wrap;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px;
+  line-height: 1.52;
+  max-height: 500px;
+  overflow: auto;
+}
+
+.button-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  backdrop-filter: blur(2px);
+}
+
+.loader-overlay.show {
+  display: flex;
+}
+
+.spinner {
+  width: 58px;
+  height: 58px;
+  border: 6px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.85s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 860px) {
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .progress-wrap {
+    flex-wrap: wrap;
+  }
+
+  .progress-line {
+    display: none;
+  }
+}

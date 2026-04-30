@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Internship Email Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="page-bg"></div>
+  <main class="container">
+    <section class="card card-center">
+      <div class="badge">Step 1 of 3</div>
+      <h1>AI Internship Email Generator</h1>
+      <p class="subtitle">Select your university to begin personalized professor matching and email generation.</p>
+
+      <div class="progress-wrap">
+        <div class="progress-step active">University</div>
+        <div class="progress-line"></div>
+        <div class="progress-step">Profile</div>
+        <div class="progress-line"></div>
+        <div class="progress-step">Result</div>
+      </div>
+
+      <form method="post" action="{{ url_for('select_university') }}" class="form-grid">
+        <label for="university">University</label>
+        <select id="university" name="university" required>
+          <option value="" disabled selected>Choose a university</option>
+          <option value="Harvard University">Harvard University</option>
+          <option value="CMR Institute of Technology (CMRIT)">CMR Institute of Technology (CMRIT)</option>
+        </select>
+
+        <button type="submit" class="btn primary">Next</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
